@@ -1,8 +1,9 @@
 ﻿using MVVMToolbox;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Threading;
 
-namespace ClockApp.Utility.Context
+namespace WPFToolbox
 {
     /// <summary>
     /// Wpf-specific implementation of IContext using Dispatcher
@@ -22,7 +23,14 @@ namespace ClockApp.Utility.Context
 
         public void Invoke(Action callback)
         {
-            m_Dispatcher.Invoke(callback);
+            try
+            {
+                m_Dispatcher.Invoke(callback);
+            }
+            catch(TaskCanceledException)
+            {
+                //Silently catch all task cancelations since they occur only when application is killed
+            }
         }
     }
 }
