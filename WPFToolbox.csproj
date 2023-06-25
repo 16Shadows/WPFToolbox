@@ -8,12 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="CSToolbox">
-      <HintPath>..\CSToolbox\bin\Release\net6.0\CSToolbox.dll</HintPath>
-    </Reference>
-    <Reference Include="MVVMToolbox">
-      <HintPath>..\MVVMToolbox\bin\Release\net6.0-windows\MVVMToolbox.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\CSToolbox\CSToolbox.csproj" />
+    <ProjectReference Include="..\MVVMToolbox\MVVMToolbox.csproj" />
   </ItemGroup>
 
   <ItemGroup>
